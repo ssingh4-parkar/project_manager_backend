@@ -7,8 +7,8 @@ const getUsers = async (req, res) => {
         const users = await userModel.find({ role: 'member' }).select("-password");
         const usersWithTaskCounts = await Promise.all(users.map(async (user) => {
             const pendingTasks = await taskModel.countDocuments({ assignedTo: user._id, status: "pending" });
-            const inProgressTasks = await taskModel.countDocuments({ assignedTo: user._id, status: "In progress" });
-            const completedTasks = await taskModel.countDocuments({ assignedTo: user._id, status: "Completed" });
+            const inProgressTasks = await taskModel.countDocuments({ assignedTo: user._id, status: "in progress" });
+            const completedTasks = await taskModel.countDocuments({ assignedTo: user._id, status: "completed" });
             return {
                 ...user._doc,
                 pendingTasks,

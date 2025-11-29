@@ -14,7 +14,7 @@ const registerUser = async (req, res) => {
             return res.status(400).json({message:"User already Exists"});
         }
         let role="member";
-        if(adminInviteToken && adminInviteToken==process.env.ADMIN_INVITE_TOKEN){
+        if(adminInviteToken===process.env.ADMIN_INVITE_TOKEN){
             role="admin";
         }
         const salt=await bcrypt.genSalt(10);
