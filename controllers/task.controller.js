@@ -153,7 +153,7 @@ const updateTaskStatus = async (req, res) => {
 };
 const updateTaskChecklist = async (req, res) => {
     try {
-        const { todoChecklist } = req.body; // ✅ Extract from request body
+        const { todoChecklist } = req.body;
         const task = await taskModel.findById(req.params.id);
         
         if (!task) {

@@ -14,7 +14,7 @@ const taskSchema = new mongoose.Schema(
     priority: { 
       type: String, 
       enum: ["low", "medium", "high"], 
-      default: "low" // FIXED: Changed from "medium" to "low"
+      default: "low" 
     },
     status: { 
       type: String, 
@@ -25,7 +25,7 @@ const taskSchema = new mongoose.Schema(
     assignedTo: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
     createdBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" }, // FIXED: Removed array brackets
     attachments: [{ type: String }],
-    todoChecklist: [todoSchema], // FIXED: Changed from todoChecklists to todoChecklist
+    todoChecklist: [todoSchema],
     progress: { type: Number, default: 0 },
   },
   { timestamps: true }
